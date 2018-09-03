@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DrawingDataChange
+namespace PatchDrawing
 {
     public partial class Form1 : Form
     {
@@ -17,52 +17,24 @@ namespace DrawingDataChange
             InitializeComponent();
         }
 
-        private void opbutton1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-        }
 
-
-        private void Svae_Click(object sender, EventArgs e)
-        {
-            saveFileDialog1.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Program.GeneratePDF(textBox1.Text, textBox2.Text,textBox3.Text);
+            DialogResult result = openFileDialog1.ShowDialog();
 
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(openFileDialog1.FileName))
+            {
+                textBox1.Text = openFileDialog1.FileName;
+            }
         }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        
+        private void buttonRun_Click(object sender, EventArgs e)
         {
-            textBox1.Text = openFileDialog1.FileName;
-        }
-
-        private void OpButton2_Click(object sender, EventArgs e)
-        {
-            openFileDialog2.ShowDialog();
-        }
-
-        private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
-        {
-            textBox2.Text = openFileDialog2.FileName;
-
-        }
-
-        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-            textBox3.Text = saveFileDialog1.FileName;
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            Program.PatchPdfFile(textBox1.Text);
         }
     }
 }
