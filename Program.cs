@@ -44,23 +44,38 @@ namespace PatchDrawing
 
                 FileInfo destination_file = new FileInfo(Path.ChangeExtension(source_file.FullName, ".patched.pdf"));
 
-                FileInfo image1_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.image1));
-                DrawImageOnPdfFile(source_file, image1_file, destination_file, 596.2, 786, start_page, end_page);
+                // Copy PDF file
+                File.Copy(source_file.FullName, destination_file.FullName, true);
 
-                FileInfo image2_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.image2));
-                DrawImageOnPdfFile(destination_file, image2_file, destination_file, 681.2, 786, start_page, end_page);
+                if (record.image1 != null && record.image1 != "") {
+                    FileInfo image1_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.image1));
+                    DrawImageOnPdfFile(destination_file, image1_file, destination_file, 596.2, 786, start_page, end_page);
+                }
 
-                FileInfo image3_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.image3));
-                DrawImageOnPdfFile(destination_file, image3_file, destination_file, 766.5, 786, start_page, end_page);
+                if (record.image2 != null && record.image2 != "") {
+                    FileInfo image2_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.image2));
+                    DrawImageOnPdfFile(destination_file, image2_file, destination_file, 681.2, 786, start_page, end_page);
+                }
 
-                FileInfo image4_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.image4));
-                DrawImageOnPdfFile(destination_file, image4_file, destination_file, 851.5, 786, start_page, end_page);
+                if (record.image3 != null && record.image3 != "") {
+                    FileInfo image3_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.image3));
+                    DrawImageOnPdfFile(destination_file, image3_file, destination_file, 766.5, 786, start_page, end_page);
+                }
 
-                FileInfo image5_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.image5));
-                DrawImageOnPdfFile(destination_file, image5_file, destination_file, 936.2, 786, start_page, end_page);
+                if (record.image4 != null && record.image4 != "") {
+                    FileInfo image4_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.image4));
+                    DrawImageOnPdfFile(destination_file, image4_file, destination_file, 851.5, 786, start_page, end_page);
+                }
 
-                FileInfo image6_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.image6));
-                DrawImageOnPdfFile(destination_file, image6_file, destination_file, 1106.5, 786, start_page, end_page);
+                if (record.image5 != null && record.image5 != "") {
+                    FileInfo image5_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.image5));
+                    DrawImageOnPdfFile(destination_file, image5_file, destination_file, 936.2, 786, start_page, end_page);
+                }
+
+                if (record.image6 != null && record.image6 != "") {
+                    FileInfo image6_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.image6));
+                    DrawImageOnPdfFile(destination_file, image6_file, destination_file, 1106.5, 786, start_page, end_page);
+                }
             }
             csv.Dispose();
             textReader.Close();
