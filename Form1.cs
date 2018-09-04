@@ -35,12 +35,12 @@ namespace PatchDrawing
         private void buttonRun_Click(object sender, EventArgs e)
         {
             System.IO.FileInfo fileInfo = new System.IO.FileInfo(textBox1.Text);
-            labelStatus.Text = "Patching " + fileInfo.Name + " ...";
+            labelStatus.Text = "正在编辑 " + fileInfo.Name + " ...";
             labelStatus.Refresh();
 
             Program.PatchPdfFile(textBox1.Text);
 
-            labelStatus.Text = fileInfo.Name + " patched";
+            labelStatus.Text = fileInfo.Name + " 编辑完毕";
             labelStatus.Refresh();
         }
     }

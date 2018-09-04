@@ -45,7 +45,7 @@
             this.buttonRun.Name = "buttonRun";
             this.buttonRun.Size = new System.Drawing.Size(110, 38);
             this.buttonRun.TabIndex = 0;
-            this.buttonRun.Text = "Run";
+            this.buttonRun.Text = "运行";
             this.buttonRun.UseVisualStyleBackColor = true;
             this.buttonRun.Click += new System.EventHandler(this.buttonRun_Click);
             // 
