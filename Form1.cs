@@ -44,13 +44,21 @@ namespace PatchDrawing
             labelStatus.Refresh();
         }
 
-        public double PageRotation
+        private double PageRotation
         {
             get
             {
                 if (radioButton2.Checked)
                 {
+                    return 90.0;
+                }
+                else if (radioButton3.Checked)
+                {
                     return 180.0;
+                }
+                else if (radioButton4.Checked)
+                {
+                    return 270;
                 }
                 else
                 {
