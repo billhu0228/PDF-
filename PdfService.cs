@@ -14,7 +14,7 @@ namespace PatchDrawing
 {
     class PdfService
     {
-        public static void PatchPdfFile(string source_file_path, double page_rotation)
+        public static void PatchPdfFile(string source_file_path)
         {
             FileInfo source_file = new FileInfo(source_file_path);
             FileInfo destination_file = new FileInfo(Path.ChangeExtension(source_file.FullName, ".patched.pdf"));
@@ -32,6 +32,7 @@ namespace PatchDrawing
 
                 int start_page = record.start_page - 1;
                 int end_page = record.end_page - 1;
+                double page_rotation = record.rotation;
 
                 if (record.image1 != null && record.image1 != "")
                 {

@@ -10,6 +10,7 @@ namespace PatchDrawing
     {
         public int start_page { get; set; }
         public int end_page { get; set; }
+        public double rotation { get; set; }
         public string image1 { get; set; }
         public string image2 { get; set; }
         public string image3 { get; set; }

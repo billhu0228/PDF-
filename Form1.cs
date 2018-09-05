@@ -38,33 +38,10 @@ namespace PatchDrawing
             labelStatus.Text = "正在编辑 " + fileInfo.Name + " ...";
             labelStatus.Refresh();
 
-            PdfService.PatchPdfFile(textBox1.Text, this.PageRotation);
+            PdfService.PatchPdfFile(textBox1.Text);
 
             labelStatus.Text = fileInfo.Name + " 编辑完毕";
             labelStatus.Refresh();
-        }
-
-        private double PageRotation
-        {
-            get
-            {
-                if (radioButton2.Checked)
-                {
-                    return 90.0;
-                }
-                else if (radioButton3.Checked)
-                {
-                    return 180.0;
-                }
-                else if (radioButton4.Checked)
-                {
-                    return 270;
-                }
-                else
-                {
-                    return 0.0;
-                }
-            }
         }
     }
 }
