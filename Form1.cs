@@ -38,7 +38,7 @@ namespace PatchDrawing
             labelStatus.Text = "正在编辑 " + fileInfo.Name + " ...";
             labelStatus.Refresh();
 
-            Program.PatchPdfFile(textBox1.Text);
+            PdfService.PatchPdfFile(textBox1.Text);
 
             labelStatus.Text = fileInfo.Name + " 编辑完毕";
             labelStatus.Refresh();
