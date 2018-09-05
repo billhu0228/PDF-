@@ -10,7 +10,7 @@ using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
 
-namespace PatchDrawing
+namespace PdfPatcher
 {
     class PdfService
     {
@@ -123,7 +123,7 @@ namespace PatchDrawing
                 Console.WriteLine("rotate {0} degree", page_rotation);
 
                 XPoint centerPoint = new XPoint(page.Width / 2, page.Height / 2);
-                gfx.RotateAtTransform(page_rotation, centerPoint);
+                gfx.RotateAtTransform(-page_rotation, centerPoint);
             }
 
             gfx.DrawImage(image, x, y);
