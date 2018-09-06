@@ -17,8 +17,12 @@ namespace PdfPatcher
         public static void PatchPdfFile(string source_file_path)
         {
             FileInfo source_file = new FileInfo(source_file_path);
-            FileInfo destination_file = new FileInfo(Path.ChangeExtension(source_file.FullName, ".patched.pdf"));
-            
+            //FileInfo destination_file = new FileInfo(Path.ChangeExtension(source_file.FullName, ".pathed.pdf"));
+
+            // 标志放前面吧-bill
+            FileInfo destination_file= new FileInfo(Path.Combine(source_file.DirectoryName, "Pached_" + source_file.Name));
+
+
             // Read PDF file
             PdfDocument document = PdfReader.Open(source_file.FullName);
 
