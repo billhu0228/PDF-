@@ -20,7 +20,7 @@ namespace PdfPatcher
             //FileInfo destination_file = new FileInfo(Path.ChangeExtension(source_file.FullName, ".pathed.pdf"));
 
             // 标志放前面吧-bill
-            FileInfo destination_file= new FileInfo(Path.Combine(source_file.DirectoryName, "Pached_" + source_file.Name));
+            FileInfo destination_file= new FileInfo(Path.Combine(source_file.DirectoryName, "Patched_" + source_file.Name));
 
 
             // Read PDF file
@@ -37,6 +37,27 @@ namespace PdfPatcher
                 int start_page = record.start_page - 1;
                 int end_page = record.end_page - 1;
                 double page_rotation = record.rotation;
+
+
+                // Add 3 places to combine images
+                if (record.imageCL1 != null && record.imageCL1 != "")
+                {
+                    FileInfo image1_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.imageCL1));
+                    DrawImageOnPdf(document, image1_file,85, 784.8333, start_page, end_page, page_rotation);
+                }
+
+                if (record.imageCL2 != null && record.imageCL2 != "")
+                {
+                    FileInfo image1_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.imageCL2));
+                    DrawImageOnPdf(document, image1_file, 226.66667, 784.8333, start_page, end_page, page_rotation);
+                }
+
+                if (record.imageCL3 != null && record.imageCL3 != "")
+                {
+                    FileInfo image1_file = new FileInfo(Path.Combine(source_file.DirectoryName, record.imageCL3));
+                    DrawImageOnPdf(document, image1_file,382.5, 784.8333, start_page, end_page, page_rotation);
+                }
+                // Bill-20181227
 
                 if (record.image1 != null && record.image1 != "")
                 {

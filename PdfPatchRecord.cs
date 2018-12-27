@@ -17,5 +17,8 @@ namespace PdfPatcher
         public string image4 { get; set; }
         public string image5 { get; set; }
         public string image6 { get; set; }
+        public string imageCL1 { get; set; }
+        public string imageCL2 { get; set; }
+        public string imageCL3 { get; set; }
     }
 }
